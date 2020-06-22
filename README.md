@@ -1,4 +1,4 @@
-#gym_DLO
+# gym_DLO
 An OpenAI gym environment that is used with PyBullet for learning purposes on the manipulation tasks for deformable linear object.
 
 ## Installation of this environment
@@ -16,3 +16,4 @@ import gym
 import gym_DLO
 env = gym.make('DLO-v0')
 ```
+
