@@ -20,6 +20,6 @@ env = gym.make('DLO-v0')
 ## Random Perturbation of the DLO
 Here is an example of the random perturbation task on a simulated rope.
 <p align="center">
-  ![image](https://github.com/rymonyu/gym_DLO/blob/master/Animations/perturb.gif) 
+  <img src=https://github.com/rymonyu/gym_DLO/blob/master/Animations/perturb.gif />
 <\p>
 
