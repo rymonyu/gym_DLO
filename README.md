@@ -23,3 +23,6 @@ Here is an example of the random perturbation task on a simulated rope.
   <img src=https://github.com/rymonyu/gym_DLO/blob/master/Animations/perturb.gif />
 </p>
 
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
