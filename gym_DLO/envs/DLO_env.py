@@ -179,7 +179,8 @@ class DLOEnv(gym.Env):
 
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         urdfRootPath = pybullet_data.getDataPath()
-        texture_paths = glob.glob(os.path.join('dtd', '**', '*.jpg'), recursive=True)
+        texture_paths = glob.glob(os.path.join('../objects/dtd', '**', '*.jpg'), recursive=True)
+        print(texture_paths)
 
         p.setGravity(0, 0, -10)
 
@@ -187,7 +188,7 @@ class DLOEnv(gym.Env):
         planeId = p.loadURDF("plane.urdf")
 
         #Generate table with random spawn texture
-        tableId = p.loadURDF("table/table.urdf", basePosition = [0.6, 0.25, 0.1], baseOrientation=self.StartOrientation)
+        tableId = p.loadURDF("../objects/table/table.urdf", basePosition = [0.6, 0.25, 0.1], baseOrientation=self.StartOrientation)
         random_texture_path = texture_paths[random.randint(0, len(texture_paths) - 1)]
         textureId = p.loadTexture(random_texture_path)
         p.changeVisualShape(tableId, -1, textureUniqueId=textureId)
@@ -1041,7 +1042,7 @@ class DLOEnv(gym.Env):
         Rp = 0.01
         cMargin = 0.01
         friction = 1e99
-        self.softBodyId = p.loadSoftBody('cyl_50_827.vtk', mass=mass, scale=scale, basePosition=state_object,
+        self.softBodyId = p.loadSoftBody('../objects/DLO/cyl_50_827.vtk', mass=mass, scale=scale, basePosition=state_object,
                                     baseOrientation=p.getQuaternionFromEuler([0, math.pi / 2, -math.pi/2]),
                                     useNeoHookean=0, useBendingSprings=useBend, useMassSpring=1,
                                     springElasticStiffness=ESt,
@@ -1057,7 +1058,7 @@ class DLOEnv(gym.Env):
         p.changeDynamics(self.cylindId, -1, rollingFriction=0.05)
 
     def spawn_ring(self, state_object, orn):
-        self.torusId = p.createCollisionShape(p.GEOM_MESH, fileName="torus/torus_15_8.obj",
+        self.torusId = p.createCollisionShape(p.GEOM_MESH, fileName="../objects/torus/torus_15_8.obj",
                                               meshScale=[0.00225, 0.00225, 0.00225],
                                               flags=p.GEOM_FORCE_CONCAVE_TRIMESH)
         self.torusId = p.createMultiBody(0, self.torusId, basePosition=state_object, baseOrientation=orn)

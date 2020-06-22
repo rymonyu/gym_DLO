@@ -1,5 +1,5 @@
 import gym
-import gym_panda
+import gym_DLO
 from gym import error, spaces, utils
 from gym.utils import seeding
 
@@ -12,7 +12,7 @@ import numpy as np
 import random
 import glob
 
-env = gym.make('panda-v0')
+env = gym.make('DLO-v0')
 
 for i in range(10):
     print("Current Iteration Count: ", i+1)
